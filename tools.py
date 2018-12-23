@@ -1,5 +1,5 @@
 from pykeyboard import *
-
+import pygame
 
 class Handler:
     def __init__(self, game):
@@ -15,8 +15,7 @@ class Handler:
         return self.game.snake
 
     def give_me_player(self):
-        return self.game.layer
-
+        return self.game.player
 
 class SnakeAi:
 
