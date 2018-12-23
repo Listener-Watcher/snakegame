@@ -18,3 +18,8 @@ Install PyUserinput:
 In command line, type pip install PyUserinput to install pygame.
 If after import pykeyboard, there is a error called No module named win32api. pip install pypiwin32
 API Page: https://github.com/SavinaRoja/PyUserInput
+
+## bugs
+score system still not fixed.
+
+## default mode is controlled by AI, to change to user mode, change the user name, Username AI is reserved for AI mode.
