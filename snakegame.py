@@ -10,7 +10,7 @@ class Player:
     def __init__(self,handler):
         self.handler = tools.Handler(self)
         self.handler=handler
-        self.username=raw_input("Please enter your name:")
+        self.username = "AI"
         self.score=0
     def showUserName(self):
         return self.username
@@ -19,9 +19,9 @@ class Player:
     def updateScore(self):
         self.score=self.score+1
     def renewScore(self):
-        self.score=0
+       self.score=0
     def ChangeUser(self):
-        self.username=raw_input("Please enter your name:")
+        self.username=raw_input("Please change your name:")
 
 class Food:
     def __init__(self, handler):
@@ -94,8 +94,6 @@ class Display:
     ball = None
 
     def __init__(self):
-        username='a'
-        socre=0
         self.frame = Tk()
         self.canvas = Canvas(self.frame, width=800, height=600, bg="#545454")
         self.canvas.pack()
@@ -147,6 +145,8 @@ class Display:
             self.canvas.create_text(400,400,text=self.player.showUserName()+" has the highest score: "+ str(self.player.showScore()))
             self.canvas.create_rectangle(200,350,600,250,fill="#8b98Ea")
             self.canvas.create_text(400,300, text = "snake game, press s to start")
+            self.canvas.create_rectangle(200,250,600,150,fill="#8b98Ea")
+            self.canvas.create_text(400, 200, text="snake game, press c to change user name")
             #self.player.renewScore()
         if self.state =="Game":
             self.update()
@@ -165,11 +165,11 @@ class Display:
                 self.canvas.create_text(400, 400, text="you are dead, please practice more")
                 self.snake.renew()
                 self.state = "Menu"
-                print"aaaa"
             if self.snake.body[-1] == [self.food.x, self.food.y]:
                 print"Should generate new food!"
             self.render(self.canvas)
-            self.ai.analyze()
+            if(self.player.username=="AI"):
+                self.ai.analyze()
         #End of inserting
         self.frame.after(30, self.run)
 
@@ -189,4 +189,5 @@ class Display:
 
 game = Display()
 game.run()
+game.frame.mainloop()
 game.frame.mainloop()
